@@ -66,3 +66,19 @@ yarn prettier --check .
 ```
 
 commit 时自动格式化配置<https://prettier.io/docs/en/precommit.html>
+
+### Commit 约束
+
+<https://github.com/conventional-changelog/commitlint>
+
+安装
+
+```shell
+yarn add @commitlint/{config-conventional,cli} -D
+```
+
+配置
+
+```shell
+echo "module.exports = {extends: ['@commitlint/config-conventional']}" > commitlint.config.js
+```
