@@ -81,4 +81,30 @@ yarn add @commitlint/{config-conventional,cli} -D
 
 ```shell
 echo "module.exports = {extends: ['@commitlint/config-conventional']}" > commitlint.config.js
+
+# add hook
+npx husky add .husky/commit-msg  'npx --no -- commitlint --edit ${1}'
 ```
+
+### Json Server
+
+使用 Json Server mock 数据
+<https://github.com/typicode/json-server>
+
+```shell
+yarn add json-server -D
+```
+
+在根目录中创建 `__json_server_mock__/db.json` 文件，并在 `package.json` 中添加启动脚本
+
+```json
+{
+  "scripts": {
+    "json-server": "json-server --watch __json_server_mock__/db.json"
+  }
+}
+```
+
+### 其他依赖
+
+- <https://github.com/ljharb/qs> url 参数拼接
