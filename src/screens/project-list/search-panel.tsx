@@ -1,11 +1,14 @@
 import React from "react";
+
 export interface User {
   id: string;
   name: string;
   email: string;
   title: string;
+  token: string;
   organization: string;
 }
+
 interface SearchPanelProps {
   users: User[];
   param: {
