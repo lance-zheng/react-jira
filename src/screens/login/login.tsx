@@ -9,13 +9,16 @@ const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
   console.log(username, password);
   login(username, password);
 };
-const login = async (username: string, password: string) => {
-  const resp = await fetch(`${baseUrl}/login`, {
+const login = (username: string, password: string) => {
+  fetch(`${baseUrl}/login`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
     },
     body: JSON.stringify({ username, password }),
+  }).then(async (response) => {
+    if (response.ok) {
+    }
   });
 };
 export const LoginScreen = () => {
