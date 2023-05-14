@@ -1,13 +1,19 @@
-import React from "react";
 import { ProjectListScreen } from "./screens/project-list";
 import { useAuth } from "./context/auth-context";
 import styled from "@emotion/styled";
 import { Row } from "components/lib";
 import { ReactComponent as SoftwareLogo } from "assets/software-logo.svg";
-import { Dropdown, Menu } from "antd";
+import { Button, Dropdown, MenuProps } from "antd";
 
 export const AuthenticatedApp = () => {
-  const { logout, user } = useAuth();
+  const { user, logout } = useAuth();
+  const items: MenuProps["items"] = [
+    {
+      key: "1",
+      label: "登出",
+      onClick: () => logout(),
+    },
+  ];
   return (
     <Container>
       <Header between={true}>
@@ -18,16 +24,8 @@ export const AuthenticatedApp = () => {
           <h2>用户</h2>
         </HeaderLeft>
         <HeaderRight>
-          <Dropdown
-            overlay={
-              <Menu>
-                <Menu.Item>
-                  <a onClick={logout}>登出</a>
-                </Menu.Item>
-              </Menu>
-            }
-          >
-            <a onClick={(e) => e.preventDefault()}>Hi,{user?.name}</a>
+          <Dropdown menu={{ items }}>
+            <Button type={"link"}>Hi,{user?.name}</Button>
           </Dropdown>
         </HeaderRight>
       </Header>

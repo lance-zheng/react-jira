@@ -108,4 +108,4 @@ yarn add json-server -D
 ### 其他依赖
 
 - <https://github.com/ljharb/qs> url 参数拼接
-- <https://github.com/ljharb/qs> dayjs
+- <https://github.com/iamkun/dayjs/> 轻量的处理时间和日期的 JavaScript 库

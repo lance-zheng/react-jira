@@ -20,7 +20,9 @@ export const ProjectListScreen = () => {
     client("projects", {
       data: cleanObject(debounceParam),
     }).then(setList);
-  }, [debounceParam, client]);
+    // TODO: fix error
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [debounceParam]);
 
   useMount(() => {
     client("users").then(setUsers);

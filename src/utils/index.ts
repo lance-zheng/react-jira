@@ -2,13 +2,11 @@ import { useEffect, useState } from "react";
 
 export const isFalsy = (value: unknown) => (value === 0 ? false : !value);
 
-export const cleanObject = (obj: object) => {
+export const cleanObject = (obj: { [key: string]: unknown }) => {
   const result = { ...obj };
 
   Object.keys(obj).forEach((key) => {
-    // @ts-ignore
     if (isFalsy(obj[key])) {
-      // @ts-ignore
       delete result[key];
     }
   });
@@ -19,6 +17,8 @@ export const cleanObject = (obj: object) => {
 export const useMount = (callback: () => void) => {
   useEffect(() => {
     callback();
+    // TODO: fix error
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 };
 
